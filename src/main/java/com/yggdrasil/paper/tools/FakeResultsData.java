@@ -50,10 +50,12 @@ public class FakeResultsData {
 
     public String fake(int length, Result.Type type) throws JsonProcessingException {
         List<Map<String, String>> results = new ArrayList<>();
+        //生成6 或7条数据，加入到result中
         for (int index = 1; index <= length; index++) {
             Map<String, String> result = new HashMap<>();
-            result.put("x", fakeSingle(type).getResult());
+            result.put("x", fakeSingle(type).getResult());//x的值是通过type生成的结果
             result.put("index", String.valueOf(index));
+            //y值为一个1000~19999的随机值
             result.put("y", String.valueOf(faker.number().numberBetween(1000, 20000)));
             results.add(result);
         }
@@ -63,15 +65,18 @@ public class FakeResultsData {
     public int fakeGroup(){
         List<Result> results = new ArrayList<>();
         ResultGroup resultGroup = new ResultGroup();
+        //10种type都会生成一条对应的模拟数据(对应数据库result表中的十条记录)
         for (Result.Type type : Result.Type.values()) {
             Result result = new Result();
             try {
+                //在results中加入一条result，每条result有6或7条数据
                 results.add(new Result(type, fake(faker.number().numberBetween(6, 8), type)));
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
         }
         resultGroup.setResult(results);
+        //最后results保存到数据库里
         return resultGroupRepository.save(resultGroup).getId();
     }
 }

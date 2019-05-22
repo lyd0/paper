@@ -29,6 +29,7 @@ public class RandomGenerateController {
     * */
     @PostMapping("/generate")
     public RespBody generate(@RequestBody RandomInfo randomInfo) {
+        //调用generateData.generate生成数据
         int recordListId = generateData.generate(randomInfo.getStuList(), randomInfo.getWebList(), randomInfo.getStartDate(), randomInfo.getEndDate(), randomInfo.getLength());
         Map<String, Integer> body = new HashMap<>(1);
         body.put("id", recordListId);

@@ -90,13 +90,16 @@ public class RandomGenerateControllerTest {
         reqBody.put("endDate", endDate);
         reqBody.put("length", length);
         ObjectMapper objectMapper = new ObjectMapper();
-        //将
+        //将reqBody转换为字符串{"length":100,"stuList":[],"webList":[],"endDate":时间戳,"startDate":时间戳}
         String body = objectMapper.writeValueAsString(reqBody);
-        System.out.println(body);
+
+        //向generate发起post请求，把reqBody发送过去，模拟网页点击post将数据发送
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/random/generate").contentType(MediaType.APPLICATION_JSON).content(body))
         .andExpect(MockMvcResultMatchers.status().is(200))
         .andExpect(MockMvcResultMatchers.jsonPath("$.statusCode", Is.is(RespCode.SUCCESS.getCode())))
         .andExpect(MockMvcResultMatchers.jsonPath("$.message", Is.is(RespCode.SUCCESS.getMsg())));
+
+
         List<Record> records = recordRepository.findAll();
         Assert.assertEquals(length, records.size());
     }

@@ -20,7 +20,7 @@ public class ResultGroup {
     private Status Status;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="result_list_id")
+    @JoinColumn(name="result_group_id")
     private List<Result> result;
 
     @Column

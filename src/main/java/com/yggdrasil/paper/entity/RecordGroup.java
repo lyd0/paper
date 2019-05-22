@@ -20,7 +20,7 @@ public class RecordGroup {
     private Status Status;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="record_list_id")
+    @JoinColumn(name="record_group_id")
     private List<Record> records;
 
     @Column

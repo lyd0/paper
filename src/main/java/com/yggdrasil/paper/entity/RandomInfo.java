@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 /*
-* 随机数据实体
+* 网页传入的reqBody封装成的信息对象
 * */
 public class RandomInfo {
     private List<String> stuList;

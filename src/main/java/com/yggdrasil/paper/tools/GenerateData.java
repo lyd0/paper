@@ -62,25 +62,29 @@ public class GenerateData {
         User user;
         Website website;
         Date date;
+
+        //将1996Y/12M/10D/0h/0m/0s到表单提交的那个时间(例如现在2019/5/21)，将时间分成length份，最后在每个区间中取一个时刻作为随机时间。（例如45天是一个区间，每45天取一个时刻作为随机时间）
         long dateInterval = (endDate.getTime() - startDate.getTime())/length;
+
         int counter = 0;
-        for(long tempDate = startDate.getTime() + dateInterval;
-            tempDate < endDate.getTime() ;
-            tempDate += dateInterval, counter++) {
-            date = stuRandom.getRandomDate(new Date(tempDate), new Date(tempDate+dateInterval));
-            user = stuRandom.getRandomInList(users);
-            website = webRandom.getRandomInList(websites);
-            records.add(new Record(website.getUrl(), "", user.getAccountId(), Record.ActionType.VISIT, date));
+        for(long tempDate = startDate.getTime() + dateInterval;//循环初始时间tempDate是第一个时间间隔(从开始时间1996/12/10向后推一个时间间隔)
+            tempDate < endDate.getTime() ; //结束条件为当前时间区间大于等于提交表单的那个时刻
+            tempDate += dateInterval, counter++) {//循环递增添加是向后推一个时间间隔
+
+            date = stuRandom.getRandomDate(new Date(tempDate), new Date(tempDate+dateInterval));//这个date是当期时间间隔中的一个随机时间
+            user = stuRandom.getRandomInList(users);//随机分配一个数据库中的user
+            website = webRandom.getRandomInList(websites);//随机分配一个数据库中的website
+            records.add(new Record(website.getUrl(), "", user.getAccountId(), Record.ActionType.VISIT, date));//生成一条Record 加入到records列表中
         }
-        recordGroup.setRecords(records);
-        recordGroup.setStatus(RecordGroup.Status.DONE);
+        recordGroup.setRecords(records);//给每条record设置RecordGroup组
+        recordGroup.setStatus(RecordGroup.Status.DONE);//将RecordGroup组的状态设置为结束
         recordGroupRepository.save(recordGroup);
 
         logger.info("已将"+counter+"条数据写入数据库");
 
         fakeResultsData.fakeGroup();
 
-        return recordGroup.getId();
+        return recordGroup.getId();//返回当前组的ID
 //        new Thread(() -> {
             //TODO: 目前calculate为测试方法，正式方法为下面被注释的
 //            hadoopService.calculate(inputFile.getAbsolutePath(),
