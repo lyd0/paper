@@ -49,6 +49,7 @@ public class GenerateData {
         recordGroup.setStatus(RecordGroup.Status.GENERATING);
         recordGroupRepository.save(recordGroup);
 
+        //如果传入的users和websites是空的 就用数据库中的
         if(sNoList.size() > 0 || wNoList.size() > 0) {
             users = userRepository.findAll(sNoList);
             websites = websiteRepository.findAll(wNoList);
