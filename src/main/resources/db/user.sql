@@ -1,6 +1,6 @@
-INSERT INTO user (account_id, created, email, name, role, status, updated) VALUES ('140230211', '2018-04-10 12:22:23', '517334437@qq.com', '李', 1, 1, '2018-04-10 12:22:27');
-INSERT INTO user (account_id, created, email, name, role, status, updated) VALUES ('140230212', '2018-04-10 12:22:23', '517334437@qq.com', '王', 1, 1, '2018-04-10 12:22:27');
-INSERT INTO user (account_id, created, email, name, role, status, updated) VALUES ('140230213', '2018-04-10 12:22:23', '517334437@qq.com', '小明', 1, 1, '2018-04-10 12:22:27');
-INSERT INTO user (account_id, created, email, name, role, status, updated) VALUES ('140230214', '2018-04-10 12:22:23', '517334437@qq.com', '张钊', 1, 1, '2018-04-10 12:22:27');
-INSERT INTO user (account_id, created, email, name, role, status, updated) VALUES ('140230215', '2018-04-10 12:22:23', '517334437@qq.com', '小红', 1, 1, '2018-04-10 12:22:27');
-INSERT INTO user (account_id, created, email, name, role, status, updated) VALUES ('140230216', '2018-04-10 12:22:23', '517334437@qq.com', '佩琦', 1, 1, '2018-04-10 12:22:27');
+INSERT INTO user (account_id, created, email, name, sex, role, status, updated) VALUES ('140230211', '2018-04-10 12:22:23', '517334437@qq.com', '李', '男', 1, 1, '2018-04-10 12:22:27');
+INSERT INTO user (account_id, created, email, name, sex, role, status, updated) VALUES ('140230212', '2018-04-10 12:22:23', '517334437@qq.com', '王', '男', 1, 1, '2018-04-10 12:22:27');
+INSERT INTO user (account_id, created, email, name, sex, role, status, updated) VALUES ('140230213', '2018-04-10 12:22:23', '517334437@qq.com', '小明', '男', 1, 1, '2018-04-10 12:22:27');
+INSERT INTO user (account_id, created, email, name, sex, role, status, updated) VALUES ('140230214', '2018-04-10 12:22:23', '517334437@qq.com', '张钊', '男', 1, 1, '2018-04-10 12:22:27');
+INSERT INTO user (account_id, created, email, name, sex, role, status, updated) VALUES ('140230215', '2018-04-10 12:22:23', '517334437@qq.com', '小红', '女', 1, 1, '2018-04-10 12:22:27');
+INSERT INTO user (account_id, created, email, name, sex, role, status, updated) VALUES ('140230216', '2018-04-10 12:22:23', '517334437@qq.com', '佩琦', '女', 1, 1, '2018-04-10 12:22:27');

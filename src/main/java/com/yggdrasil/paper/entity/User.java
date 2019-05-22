@@ -27,6 +27,9 @@ public class User {
     private String name;
 
     @Column
+    private String sex;
+
+    @Column
     private Role role;
 
     @Column
@@ -110,6 +113,14 @@ public class User {
 
     public void setUpdated(Date updated) {
         this.updated = updated;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }
 
