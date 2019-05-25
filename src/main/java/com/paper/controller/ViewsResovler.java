@@ -1,11 +1,12 @@
 package com.paper.controller;
 
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+@Component
 public class ViewsResovler extends WebMvcConfigurerAdapter {
-
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -16,10 +17,5 @@ public class ViewsResovler extends WebMvcConfigurerAdapter {
         registry.addViewController("/main.html").setViewName("dashboard");
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginHandlerInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/","/index.html","/user/login","/asserts/**","/webjars/**");
-    }
+
 }
